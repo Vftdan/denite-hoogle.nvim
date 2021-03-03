@@ -78,3 +78,9 @@ class Kind(Base):
             for module_import in module_imports:
                 _paste(self.vim, module_import)
 
+    def action_narrow(self, context):
+        context["sources_queue"].append([{
+            "name": "hoogle",
+            "args": [context["input"]]
+        } for x in context["targets"]])
+
